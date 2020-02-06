@@ -1,0 +1,239 @@
+\hypertarget{class_variable_conversion}{}\section{Variable\+Conversion Class Reference}
+\label{class_variable_conversion}\index{VariableConversion@{VariableConversion}}
+
+
+{\ttfamily \#include $<$variable\+\_\+conversion.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_variable_conversion_a4ecffbff30f29f7d466b884b490a0c21}{Endian\+Swap16}} (unsigned short $\ast$x)
+\begin{DoxyCompactList}\small\item\em Swap the endianness of a 16 bit variable. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_variable_conversion_a7ee01caff268378f05f985aea3c3d632}{Endian\+Swap32}} (unsigned int $\ast$x)
+\begin{DoxyCompactList}\small\item\em Swap the endianness of a 32 bit variable. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_variable_conversion_a148552cb5b64d68c2ab2a70727ebcafb}{Endian\+Swap32f}} (const char $\ast$x)
+\begin{DoxyCompactList}\small\item\em Swap the endianness of a float. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_variable_conversion_ae10304a5223aa1913aac928e5ecce8f9}{Endian\+Swap32i}} (char $\ast$x)
+\begin{DoxyCompactList}\small\item\em Swap the endianness of an integer. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_variable_conversion_ad306788e148ee803542922852f91026f}{Char2\+Float}} (char $\ast$array)
+\begin{DoxyCompactList}\small\item\em Convert any 4 byte char array into a float. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_variable_conversion_a2a461a2be2edffa001a019022e5fc724}{Char2\+Int}} (char $\ast$array)
+\begin{DoxyCompactList}\small\item\em Convert any 4 byte char array into a int. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_variable_conversion_abdea4baadadd20db6bc80d366462ad4c}{Int2\+Char}} (int input, char output\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Converts an integer to character array in little endian. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_variable_conversion_ab50543149570aba13c55c3488f155467}{Float2\+Char}} (float input, char output\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Converts a float to character array in little endian. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_variable_conversion_a5b8d2ebcdb12c1233a586395bdddd18a}{Short2\+Char}} (unsigned short input, char output\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Converts a short to character array in little endian. \end{DoxyCompactList}\item 
+unsigned short \mbox{\hyperlink{class_variable_conversion_aa6e6dc3e28b16a38ca77908cb97d0d2c}{Char2\+Short}} (char input\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Converts a character array to short in big endian. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class that performs variable conversions
+
+1) Changes the endian of the variable 2) Changes int to char array 3) Changes float to char array
+
+Created by\+: \begin{DoxyAuthor}{Author}
+Er Jie Kai (E\+JK) 
+\end{DoxyAuthor}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_variable_conversion_ad306788e148ee803542922852f91026f}\label{class_variable_conversion_ad306788e148ee803542922852f91026f}} 
+\index{VariableConversion@{VariableConversion}!Char2Float@{Char2Float}}
+\index{Char2Float@{Char2Float}!VariableConversion@{VariableConversion}}
+\subsubsection{\texorpdfstring{Char2Float()}{Char2Float()}}
+{\footnotesize\ttfamily float Variable\+Conversion\+::\+Char2\+Float (\begin{DoxyParamCaption}\item[{char $\ast$}]{array }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Convert any 4 byte char array into a float. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & the 4 byte char array to be converted to float\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns the converted float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_variable_conversion_a2a461a2be2edffa001a019022e5fc724}\label{class_variable_conversion_a2a461a2be2edffa001a019022e5fc724}} 
+\index{VariableConversion@{VariableConversion}!Char2Int@{Char2Int}}
+\index{Char2Int@{Char2Int}!VariableConversion@{VariableConversion}}
+\subsubsection{\texorpdfstring{Char2Int()}{Char2Int()}}
+{\footnotesize\ttfamily int Variable\+Conversion\+::\+Char2\+Int (\begin{DoxyParamCaption}\item[{char $\ast$}]{array }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Convert any 4 byte char array into a int. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & the 4 byte char array to be converted to int\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns the converted int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_variable_conversion_aa6e6dc3e28b16a38ca77908cb97d0d2c}\label{class_variable_conversion_aa6e6dc3e28b16a38ca77908cb97d0d2c}} 
+\index{VariableConversion@{VariableConversion}!Char2Short@{Char2Short}}
+\index{Char2Short@{Char2Short}!VariableConversion@{VariableConversion}}
+\subsubsection{\texorpdfstring{Char2Short()}{Char2Short()}}
+{\footnotesize\ttfamily unsigned short Variable\+Conversion\+::\+Char2\+Short (\begin{DoxyParamCaption}\item[{char}]{input\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Converts a character array to short in big endian. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input} & the float to be converted \\
+\hline
+\mbox{\texttt{ out}}  & {\em output} & the converted character array\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns nothing \mbox{[}output via pointer\mbox{]} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_variable_conversion_a4ecffbff30f29f7d466b884b490a0c21}\label{class_variable_conversion_a4ecffbff30f29f7d466b884b490a0c21}} 
+\index{VariableConversion@{VariableConversion}!EndianSwap16@{EndianSwap16}}
+\index{EndianSwap16@{EndianSwap16}!VariableConversion@{VariableConversion}}
+\subsubsection{\texorpdfstring{EndianSwap16()}{EndianSwap16()}}
+{\footnotesize\ttfamily void Variable\+Conversion\+::\+Endian\+Swap16 (\begin{DoxyParamCaption}\item[{unsigned short $\ast$}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Swap the endianness of a 16 bit variable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}in/out\mbox{]}} & x the 16 byte char array to be swapped\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns nothing \mbox{[}output via pointer\mbox{]} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_variable_conversion_a7ee01caff268378f05f985aea3c3d632}\label{class_variable_conversion_a7ee01caff268378f05f985aea3c3d632}} 
+\index{VariableConversion@{VariableConversion}!EndianSwap32@{EndianSwap32}}
+\index{EndianSwap32@{EndianSwap32}!VariableConversion@{VariableConversion}}
+\subsubsection{\texorpdfstring{EndianSwap32()}{EndianSwap32()}}
+{\footnotesize\ttfamily void Variable\+Conversion\+::\+Endian\+Swap32 (\begin{DoxyParamCaption}\item[{unsigned int $\ast$}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Swap the endianness of a 32 bit variable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}in/out\mbox{]}} & x the 32 byte char array to be swapped\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns nothing \mbox{[}output via pointer\mbox{]} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_variable_conversion_a148552cb5b64d68c2ab2a70727ebcafb}\label{class_variable_conversion_a148552cb5b64d68c2ab2a70727ebcafb}} 
+\index{VariableConversion@{VariableConversion}!EndianSwap32f@{EndianSwap32f}}
+\index{EndianSwap32f@{EndianSwap32f}!VariableConversion@{VariableConversion}}
+\subsubsection{\texorpdfstring{EndianSwap32f()}{EndianSwap32f()}}
+{\footnotesize\ttfamily float Variable\+Conversion\+::\+Endian\+Swap32f (\begin{DoxyParamCaption}\item[{const char $\ast$}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Swap the endianness of a float. 
+
+Convert your input float into a 4 element char array before using this function
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & the 4 byte char array to be converted to float\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns the swap endianness float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_variable_conversion_ae10304a5223aa1913aac928e5ecce8f9}\label{class_variable_conversion_ae10304a5223aa1913aac928e5ecce8f9}} 
+\index{VariableConversion@{VariableConversion}!EndianSwap32i@{EndianSwap32i}}
+\index{EndianSwap32i@{EndianSwap32i}!VariableConversion@{VariableConversion}}
+\subsubsection{\texorpdfstring{EndianSwap32i()}{EndianSwap32i()}}
+{\footnotesize\ttfamily int Variable\+Conversion\+::\+Endian\+Swap32i (\begin{DoxyParamCaption}\item[{char $\ast$}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Swap the endianness of an integer. 
+
+Convert your input integer into a 4 element char array before using this function
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & the 4 byte char array to be converted to integer\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns the swap endianness integer 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_variable_conversion_ab50543149570aba13c55c3488f155467}\label{class_variable_conversion_ab50543149570aba13c55c3488f155467}} 
+\index{VariableConversion@{VariableConversion}!Float2Char@{Float2Char}}
+\index{Float2Char@{Float2Char}!VariableConversion@{VariableConversion}}
+\subsubsection{\texorpdfstring{Float2Char()}{Float2Char()}}
+{\footnotesize\ttfamily void Variable\+Conversion\+::\+Float2\+Char (\begin{DoxyParamCaption}\item[{float}]{input,  }\item[{char}]{output\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Converts a float to character array in little endian. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input} & the float to be converted \\
+\hline
+\mbox{\texttt{ out}}  & {\em output} & the converted character array\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns nothing \mbox{[}output via pointer\mbox{]} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_variable_conversion_abdea4baadadd20db6bc80d366462ad4c}\label{class_variable_conversion_abdea4baadadd20db6bc80d366462ad4c}} 
+\index{VariableConversion@{VariableConversion}!Int2Char@{Int2Char}}
+\index{Int2Char@{Int2Char}!VariableConversion@{VariableConversion}}
+\subsubsection{\texorpdfstring{Int2Char()}{Int2Char()}}
+{\footnotesize\ttfamily void Variable\+Conversion\+::\+Int2\+Char (\begin{DoxyParamCaption}\item[{int}]{input,  }\item[{char}]{output\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Converts an integer to character array in little endian. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input} & the integer to be converted \\
+\hline
+\mbox{\texttt{ out}}  & {\em output} & the converted character array\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns nothing \mbox{[}output via pointer\mbox{]} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_variable_conversion_a5b8d2ebcdb12c1233a586395bdddd18a}\label{class_variable_conversion_a5b8d2ebcdb12c1233a586395bdddd18a}} 
+\index{VariableConversion@{VariableConversion}!Short2Char@{Short2Char}}
+\index{Short2Char@{Short2Char}!VariableConversion@{VariableConversion}}
+\subsubsection{\texorpdfstring{Short2Char()}{Short2Char()}}
+{\footnotesize\ttfamily void Variable\+Conversion\+::\+Short2\+Char (\begin{DoxyParamCaption}\item[{unsigned short}]{input,  }\item[{char}]{output\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Converts a short to character array in little endian. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input} & the float to be converted \\
+\hline
+\mbox{\texttt{ out}}  & {\em output} & the converted character array\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns nothing \mbox{[}output via pointer\mbox{]} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/variable\+\_\+conversion.\+hpp\end{DoxyCompactItemize}

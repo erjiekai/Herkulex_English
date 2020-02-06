@@ -1,0 +1,137 @@
+\hypertarget{class_keyboard_functions}{}\section{Keyboard\+Functions Class Reference}
+\label{class_keyboard_functions}\index{KeyboardFunctions@{KeyboardFunctions}}
+
+
+{\ttfamily \#include $<$Keyboard\+Functions.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{class_keyboard_functions_a7dc688d2e10e9fbbf8bb2ad5e0e163d9}{get\+Non\+Blocking\+Triggers}} ()
+\begin{DoxyCompactList}\small\item\em Get non-\/blocking keyboard triggers (skip until triggered) \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{class_keyboard_functions_a3c4c4c3032f1dfaafb5d844920f95994}{get\+Blocking\+Triggers}} ()
+\begin{DoxyCompactList}\small\item\em Get blocking keyboard triggers (wait until triggered) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_keyboard_functions_a22c23d2cbca56599768a5ceac94cbb0b}{demo}} ()
+\begin{DoxyCompactList}\small\item\em A test/demo of the linux kbhit function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_keyboard_functions_abead7b07445b65c4b01d613823d2f8ce}{\+\_\+kbhit}} ()
+\begin{DoxyCompactList}\small\item\em A Linux implementation of Windows \+\_\+kbhit non-\/blocking function to wait for user\textquotesingle{}s key pressed. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{class_keyboard_functions_acdaa4ed7d68dd3faf4103fc8112c768b}{\+\_\+getch}} ()
+\begin{DoxyCompactList}\small\item\em A Linux implementation of Windows \+\_\+getch to obtain the keypressed from the buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Keyboard function class ~\newline
+ A implementation of the \mbox{\hyperlink{class_keyboard_functions_abead7b07445b65c4b01d613823d2f8ce}{\+\_\+kbhit()}} function for Linux. ~\newline
+In windows \mbox{\hyperlink{class_keyboard_functions_abead7b07445b65c4b01d613823d2f8ce}{\+\_\+kbhit()}} is suppose to implement non-\/blocking user input checking function. If the function returns a nonzero value, a keystroke is waiting in the buffer. The program can then call \+\_\+getch or \+\_\+getche to get the keystroke. ~\newline
+Non-\/blocking means that inputs can interrupt the current ongoing process, but not let the program wont wait for user input indefinitely like scanf
+
+In Windows , conio.\+h implements the \+\_\+kbhit function for us. ~\newline
+In Linux, we have to implement our own, because it lacks a \+\_\+kbhit function. \begin{DoxySeeAlso}{See also}
+\href{http://www.flipcode.com/archives/_kbhit_for_Linux.shtml}{\texttt{ http\+://www.\+flipcode.\+com/archives/\+\_\+kbhit\+\_\+for\+\_\+\+Linux.\+shtml}}
+\end{DoxySeeAlso}
+\begin{DoxyNote}{Note}
+within rpi, when using this function, we need to allow the user to run the internal script \char`\"{}/sys/class/gpio/export\char`\"{} in sudo mode. Hence, there is a need to elevate permission when running the code, or change permission of the export file. ~\newline
+1) elevate permission when running code\+: \$ sudo ./bin/\+A\+R\+M/\+Debug/\+R\+Pi\+\_\+\+V\+S\+\_\+\+Crossplatform\+Build.out. ~\newline
+2) change permission of export script\+: \$ sudo chmod 777 /sys/class/gpio/export
+\end{DoxyNote}
+\begin{DoxyAuthor}{Author}
+Er Jie Kai (E\+JK)
+\end{DoxyAuthor}
+Edited from the source written by the following \begin{DoxyAuthor}{Author}
+Morgan Mc\+Guire, \href{mailto:morgan@cs.brown.edu}{\texttt{ morgan@cs.\+brown.\+edu}} 
+\end{DoxyAuthor}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_keyboard_functions_acdaa4ed7d68dd3faf4103fc8112c768b}\label{class_keyboard_functions_acdaa4ed7d68dd3faf4103fc8112c768b}} 
+\index{KeyboardFunctions@{KeyboardFunctions}!\_getch@{\_getch}}
+\index{\_getch@{\_getch}!KeyboardFunctions@{KeyboardFunctions}}
+\subsubsection{\texorpdfstring{\_getch()}{\_getch()}}
+{\footnotesize\ttfamily char Keyboard\+Functions\+::\+\_\+getch (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A Linux implementation of Windows \+\_\+getch to obtain the keypressed from the buffer. 
+
+\begin{DoxyReturn}{Returns}
+the ascii keystroke 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_keyboard_functions_abead7b07445b65c4b01d613823d2f8ce}\label{class_keyboard_functions_abead7b07445b65c4b01d613823d2f8ce}} 
+\index{KeyboardFunctions@{KeyboardFunctions}!\_kbhit@{\_kbhit}}
+\index{\_kbhit@{\_kbhit}!KeyboardFunctions@{KeyboardFunctions}}
+\subsubsection{\texorpdfstring{\_kbhit()}{\_kbhit()}}
+{\footnotesize\ttfamily int Keyboard\+Functions\+::\+\_\+kbhit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A Linux implementation of Windows \+\_\+kbhit non-\/blocking function to wait for user\textquotesingle{}s key pressed. 
+
+\begin{DoxyReturn}{Returns}
+number of bytes waiting in the buffer. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_keyboard_functions_a22c23d2cbca56599768a5ceac94cbb0b}\label{class_keyboard_functions_a22c23d2cbca56599768a5ceac94cbb0b}} 
+\index{KeyboardFunctions@{KeyboardFunctions}!demo@{demo}}
+\index{demo@{demo}!KeyboardFunctions@{KeyboardFunctions}}
+\subsubsection{\texorpdfstring{demo()}{demo()}}
+{\footnotesize\ttfamily void Keyboard\+Functions\+::demo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+A test/demo of the linux kbhit function. 
+
+Calling this function will run a non-\/blocking keyboard detection loop.~\newline
+Once the \textquotesingle{}E\textquotesingle{} key is pressed, the program will stop.
+
+\begin{DoxyNote}{Note}
+this demo should run on both linux and windows.
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+returns nothing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_keyboard_functions_a3c4c4c3032f1dfaafb5d844920f95994}\label{class_keyboard_functions_a3c4c4c3032f1dfaafb5d844920f95994}} 
+\index{KeyboardFunctions@{KeyboardFunctions}!getBlockingTriggers@{getBlockingTriggers}}
+\index{getBlockingTriggers@{getBlockingTriggers}!KeyboardFunctions@{KeyboardFunctions}}
+\subsubsection{\texorpdfstring{getBlockingTriggers()}{getBlockingTriggers()}}
+{\footnotesize\ttfamily char Keyboard\+Functions\+::get\+Blocking\+Triggers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get blocking keyboard triggers (wait until triggered) 
+
+Calling this function will block the program using a while(1) loop. ~\newline
+Will only return when a keyboard is pressed/triggered
+
+Trigger Code\+: ~\newline
+-\/look at the define pre-\/compiled macros defined in header file
+
+\begin{DoxyReturn}{Returns}
+returns the trigger code 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_keyboard_functions_a7dc688d2e10e9fbbf8bb2ad5e0e163d9}\label{class_keyboard_functions_a7dc688d2e10e9fbbf8bb2ad5e0e163d9}} 
+\index{KeyboardFunctions@{KeyboardFunctions}!getNonBlockingTriggers@{getNonBlockingTriggers}}
+\index{getNonBlockingTriggers@{getNonBlockingTriggers}!KeyboardFunctions@{KeyboardFunctions}}
+\subsubsection{\texorpdfstring{getNonBlockingTriggers()}{getNonBlockingTriggers()}}
+{\footnotesize\ttfamily char Keyboard\+Functions\+::get\+Non\+Blocking\+Triggers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get non-\/blocking keyboard triggers (skip until triggered) 
+
+Calling this function will N\+OT block the program ~\newline
+return the triggered code
+
+Trigger Code\+: ~\newline
+-\/look at the define pre-\/compiled macros defined in header file
+
+\begin{DoxyReturn}{Returns}
+returns the trigger code 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Keyboard\+Functions.\+hpp\item 
+src/Keyboard\+Functions.\+cpp\end{DoxyCompactItemize}

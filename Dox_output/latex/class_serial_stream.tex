@@ -1,0 +1,68 @@
+\hypertarget{class_serial_stream}{}\section{Serial\+Stream Class Reference}
+\label{class_serial_stream}\index{SerialStream@{SerialStream}}
+
+
+{\ttfamily \#include $<$serial\+\_\+stream.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_serial_stream_aded9d00bc991493ec5e9ee92541b7d5e}{Open}} (const char $\ast$device)
+\begin{DoxyCompactList}\small\item\em Opens a C\+OM port in windows. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_serial_stream_a4a1c1d52b598a7cb1597f8cc0450f395}{read}} (char $\ast$buffer)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Reads data from a U\+SB port for W\+I\+N\+D\+O\+WS
+
+\begin{DoxyNote}{Note}
+for linux, use Lib\+Serial 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\href{http://libserial.sourceforge.net/}{\texttt{ http\+://libserial.\+sourceforge.\+net/}}
+\end{DoxySeeAlso}
+This class is written to mimic the Serial\+Stream.\+h member functions. Hence, the member functions name are all the same, and not following google style guide
+
+basics on usb read write using Win32 A\+PI \href{http://xanthium.in/Serial-Port-Programming-using-Win32-API}{\texttt{ http\+://xanthium.\+in/\+Serial-\/\+Port-\/\+Programming-\/using-\/\+Win32-\/\+A\+PI}} For using Overlapped (Multithread). i.\+e. non blocking read/write \href{https://www.dreamincode.net/forums/topic/165693-microsoft-working-with-overlapped-io/}{\texttt{ https\+://www.\+dreamincode.\+net/forums/topic/165693-\/microsoft-\/working-\/with-\/overlapped-\/io/}}
+
+Created by\+: \begin{DoxyAuthor}{Author}
+Er Jie Kai (E\+JK) 
+\end{DoxyAuthor}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_serial_stream_aded9d00bc991493ec5e9ee92541b7d5e}\label{class_serial_stream_aded9d00bc991493ec5e9ee92541b7d5e}} 
+\index{SerialStream@{SerialStream}!Open@{Open}}
+\index{Open@{Open}!SerialStream@{SerialStream}}
+\subsubsection{\texorpdfstring{Open()}{Open()}}
+{\footnotesize\ttfamily int Serial\+Stream\+::\+Open (\begin{DoxyParamCaption}\item[{const char $\ast$}]{device }\end{DoxyParamCaption})}
+
+
+
+Opens a C\+OM port in windows. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em device} & the name of the port (eg\+: C\+O\+M1 or C\+O\+M24)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns flag code \mbox{[}0 = everything successful, 1 = I\+N\+V\+A\+L\+I\+D\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+V\+A\+L\+UE, 2 = Set\+Comm\+State failed \mbox{]} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_serial_stream_a4a1c1d52b598a7cb1597f8cc0450f395}\label{class_serial_stream_a4a1c1d52b598a7cb1597f8cc0450f395}} 
+\index{SerialStream@{SerialStream}!read@{read}}
+\index{read@{read}!SerialStream@{SerialStream}}
+\subsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily int Serial\+Stream\+::read (\begin{DoxyParamCaption}\item[{char $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+code to read out 400 bytes at one go. This will stop the program until 400 bytes have been read. not useful.
+
+code to read the rest of the buffer after 1 byte has been read
+
+this code tries to read the buffer until no bytes is left. Doesnt work properly with overlapped I/O 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/serial\+\_\+stream.\+hpp\item 
+src/serial\+\_\+stream.\+cpp\end{DoxyCompactItemize}

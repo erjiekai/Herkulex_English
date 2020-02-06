@@ -1,0 +1,257 @@
+\hypertarget{class_herkulex_driver}{}\section{Herkulex\+Driver Class Reference}
+\label{class_herkulex_driver}\index{HerkulexDriver@{HerkulexDriver}}
+
+
+{\ttfamily \#include $<$herkulex\+\_\+driver.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_herkulex_driver_a7c08f5e017f2d907b252b2c93bcfc6a8}{Herkulex\+Driver}} (std\+::string valid\+\_\+com\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Connect to the U\+SB serial device and configure the port settings. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_herkulex_driver_a79b66b9bca4844244fb42eea57aa3e68}{set\+Acknowledge\+Policy}} (char p\+ID, int policy=1)
+\begin{DoxyCompactList}\small\item\em set the acknowledge policy \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_herkulex_driver_adc46bbeb799bc4468423e42401f17006}{set\+Control\+Mode}} (char p\+ID, int controlmode=0)
+\begin{DoxyCompactList}\small\item\em set the control mode \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_herkulex_driver_a2571e6165507ae6345c0bd1ad5671476}{set\+Torque\+Control}} (char p\+ID, int mode=0)
+\begin{DoxyCompactList}\small\item\em set the Torque Control \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_herkulex_driver_ac27d17cba8bbaceb0a48215cea764c0b}{get\+Absolute\+Angle}} (char p\+ID)
+\item 
+float \mbox{\hyperlink{class_herkulex_driver_a22b2f9f17c0d74aae368149ec240d4a3}{get\+Calibrated\+Angle}} (char p\+ID)
+\item 
+int \mbox{\hyperlink{class_herkulex_driver_aaa8fe5f9dd0c08a0f669ca34d9f1b607}{get\+Error}} (char p\+ID)
+\item 
+int \mbox{\hyperlink{class_herkulex_driver_aeaf3b05814878c6c726bae1ef6a69a6f}{clear\+Error}} (char p\+ID)
+\item 
+void \mbox{\hyperlink{class_herkulex_driver_a88a5a3b6d55fb817034308a7282f386b}{run\+Motor}} (\mbox{\hyperlink{struct_s___j_o_g___t_a_g}{S\+\_\+\+J\+O\+G\+\_\+\+T\+AG}} $\ast$sjog, char num\+\_\+sjog)
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_herkulex_driver_a88fc6f6f61129cd1f8133b4d263bf6cc}{get\+Valid\+Com\+Port}} (std\+::string valid\+\_\+com\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Get all the connected I\+MU on windows machine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Uses \mbox{\hyperlink{serial__stream_8hpp_source}{serial\+\_\+stream.\+hpp}} to send comamnds to herkulex
+
+\begin{DoxyNote}{Note}
+for linux, use Lib\+Serial 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\href{http://libserial.sourceforge.net/}{\texttt{ http\+://libserial.\+sourceforge.\+net/}}
+\end{DoxySeeAlso}
+This class is written to mimic the Serial\+Stream.\+h member functions. Hence, the member functions name are all the same, and not following google style guide
+
+basics on usb read write using Win32 A\+PI \href{http://xanthium.in/Serial-Port-Programming-using-Win32-API}{\texttt{ http\+://xanthium.\+in/\+Serial-\/\+Port-\/\+Programming-\/using-\/\+Win32-\/\+A\+PI}} For using Overlapped (Multithread). i.\+e. non blocking read/write \href{https://www.dreamincode.net/forums/topic/165693-microsoft-working-with-overlapped-io/}{\texttt{ https\+://www.\+dreamincode.\+net/forums/topic/165693-\/microsoft-\/working-\/with-\/overlapped-\/io/}}
+
+Created by\+: \begin{DoxyAuthor}{Author}
+Er Jie Kai (E\+JK) 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_herkulex_driver_a7c08f5e017f2d907b252b2c93bcfc6a8}\label{class_herkulex_driver_a7c08f5e017f2d907b252b2c93bcfc6a8}} 
+\index{HerkulexDriver@{HerkulexDriver}!HerkulexDriver@{HerkulexDriver}}
+\index{HerkulexDriver@{HerkulexDriver}!HerkulexDriver@{HerkulexDriver}}
+\subsubsection{\texorpdfstring{HerkulexDriver()}{HerkulexDriver()}}
+{\footnotesize\ttfamily Herkulex\+Driver\+::\+Herkulex\+Driver (\begin{DoxyParamCaption}\item[{std\+::string}]{valid\+\_\+com\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Connect to the U\+SB serial device and configure the port settings. 
+
+This function will search all connected comport for a matching comport name and connect to it.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em valid\+\_\+com\+\_\+port} & the com port name to match\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns nothing 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_herkulex_driver_aeaf3b05814878c6c726bae1ef6a69a6f}\label{class_herkulex_driver_aeaf3b05814878c6c726bae1ef6a69a6f}} 
+\index{HerkulexDriver@{HerkulexDriver}!clearError@{clearError}}
+\index{clearError@{clearError}!HerkulexDriver@{HerkulexDriver}}
+\subsubsection{\texorpdfstring{clearError()}{clearError()}}
+{\footnotesize\ttfamily int Herkulex\+Driver\+::clear\+Error (\begin{DoxyParamCaption}\item[{char}]{p\+ID }\end{DoxyParamCaption})}
+
+clear the status error and status detail
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+ID} & id of the motor\\
+\hline
+\end{DoxyParams}
+return returns nothing \mbox{\Hypertarget{class_herkulex_driver_ac27d17cba8bbaceb0a48215cea764c0b}\label{class_herkulex_driver_ac27d17cba8bbaceb0a48215cea764c0b}} 
+\index{HerkulexDriver@{HerkulexDriver}!getAbsoluteAngle@{getAbsoluteAngle}}
+\index{getAbsoluteAngle@{getAbsoluteAngle}!HerkulexDriver@{HerkulexDriver}}
+\subsubsection{\texorpdfstring{getAbsoluteAngle()}{getAbsoluteAngle()}}
+{\footnotesize\ttfamily float Herkulex\+Driver\+::get\+Absolute\+Angle (\begin{DoxyParamCaption}\item[{char}]{p\+ID }\end{DoxyParamCaption})}
+
+gets the absolute angle Absolute position Raw Data (60) Angle = r(\+Absolute Position) X 0.\+325
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+ID} & id of the motor\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return the absolute angle of the motor 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_herkulex_driver_a22b2f9f17c0d74aae368149ec240d4a3}\label{class_herkulex_driver_a22b2f9f17c0d74aae368149ec240d4a3}} 
+\index{HerkulexDriver@{HerkulexDriver}!getCalibratedAngle@{getCalibratedAngle}}
+\index{getCalibratedAngle@{getCalibratedAngle}!HerkulexDriver@{HerkulexDriver}}
+\subsubsection{\texorpdfstring{getCalibratedAngle()}{getCalibratedAngle()}}
+{\footnotesize\ttfamily float Herkulex\+Driver\+::get\+Calibrated\+Angle (\begin{DoxyParamCaption}\item[{char}]{p\+ID }\end{DoxyParamCaption})}
+
+gets the calibrated angle Calibrated position Data (58)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+ID} & id of the motor\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return the calibrated angle of the motor 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_herkulex_driver_aaa8fe5f9dd0c08a0f669ca34d9f1b607}\label{class_herkulex_driver_aaa8fe5f9dd0c08a0f669ca34d9f1b607}} 
+\index{HerkulexDriver@{HerkulexDriver}!getError@{getError}}
+\index{getError@{getError}!HerkulexDriver@{HerkulexDriver}}
+\subsubsection{\texorpdfstring{getError()}{getError()}}
+{\footnotesize\ttfamily int Herkulex\+Driver\+::get\+Error (\begin{DoxyParamCaption}\item[{char}]{p\+ID }\end{DoxyParamCaption})}
+
+gets the status error and status detail
+
+Status Error\+: Bit Value Comment 0 0X01 Exceed Input Voltage limit 1 0X02 Exceed allowed P\+OT limit 2 0X04 Exceed Temperature limit 3 0X08 Invalid Packet 4 0X10 Overload detected 5 0X20 Driver fault detected 6 0X40 E\+EP R\+EG distorted 7 0X80 reserved
+
+Status Detail\+: Bit Value Comment 0 0X01 Moving flag 1 0X02 Inposition flag 2 0X04 Checksum Error 3 0X08 Unknown Command 4 0X10 Exceed R\+EG range 5 0X20 Garbage detected 6 0X40 M\+O\+T\+O\+R\+\_\+\+ON flag 7 0X80 reserved
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+ID} & id of the motor\\
+\hline
+\end{DoxyParams}
+return integer of combined status\+\_\+error$<$$<$8 \& status\+\_\+detail \mbox{\Hypertarget{class_herkulex_driver_a88fc6f6f61129cd1f8133b4d263bf6cc}\label{class_herkulex_driver_a88fc6f6f61129cd1f8133b4d263bf6cc}} 
+\index{HerkulexDriver@{HerkulexDriver}!getValidComPort@{getValidComPort}}
+\index{getValidComPort@{getValidComPort}!HerkulexDriver@{HerkulexDriver}}
+\subsubsection{\texorpdfstring{getValidComPort()}{getValidComPort()}}
+{\footnotesize\ttfamily int Herkulex\+Driver\+::get\+Valid\+Com\+Port (\begin{DoxyParamCaption}\item[{std\+::string}]{valid\+\_\+com\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get all the connected I\+MU on windows machine. 
+
+This function is only necessary on windows.~\newline
+The name of the comport device must match the stated name of \char`\"{}\+U\+S\+B Serial Device\char`\"{} to be considered an I\+MU
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em valid\+\_\+com\+\_\+port} & a pointer to store all the discovered comport\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns the number of valid comports discovered 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_herkulex_driver_a88a5a3b6d55fb817034308a7282f386b}\label{class_herkulex_driver_a88a5a3b6d55fb817034308a7282f386b}} 
+\index{HerkulexDriver@{HerkulexDriver}!runMotor@{runMotor}}
+\index{runMotor@{runMotor}!HerkulexDriver@{HerkulexDriver}}
+\subsubsection{\texorpdfstring{runMotor()}{runMotor()}}
+{\footnotesize\ttfamily void Herkulex\+Driver\+::run\+Motor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_s___j_o_g___t_a_g}{S\+\_\+\+J\+O\+G\+\_\+\+T\+AG}} $\ast$}]{sjog,  }\item[{char}]{num\+\_\+sjog }\end{DoxyParamCaption})}
+
+runs the Motor using S\+\_\+\+J\+OG protocol
+
+\begin{DoxyNote}{Note}
+S\+\_\+\+J\+OG is suppose to allow multiple motors to be commanded simultaneously. However, only the specied motor via data\mbox{[}3\mbox{]} (p\+ID element) will move. Hence each motor must be commanded individually now.
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em $\ast$sjog} & array of \mbox{\hyperlink{struct_s___j_o_g___t_a_g}{S\+\_\+\+J\+O\+G\+\_\+\+T\+AG}} structure \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+\_\+sjog} & number of sjog elements in sjog array\\
+\hline
+\end{DoxyParams}
+return returns nothing \mbox{\Hypertarget{class_herkulex_driver_a79b66b9bca4844244fb42eea57aa3e68}\label{class_herkulex_driver_a79b66b9bca4844244fb42eea57aa3e68}} 
+\index{HerkulexDriver@{HerkulexDriver}!setAcknowledgePolicy@{setAcknowledgePolicy}}
+\index{setAcknowledgePolicy@{setAcknowledgePolicy}!HerkulexDriver@{HerkulexDriver}}
+\subsubsection{\texorpdfstring{setAcknowledgePolicy()}{setAcknowledgePolicy()}}
+{\footnotesize\ttfamily void Herkulex\+Driver\+::set\+Acknowledge\+Policy (\begin{DoxyParamCaption}\item[{char}]{p\+ID,  }\item[{int}]{policy = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+set the acknowledge policy 
+
+Sets A\+CK Packet reply policy(1) when Request Packet is received. ~\newline
+A\+CK Policy(\+R\+A\+M Register Address 1)~\newline
+0 \+: No reply to any Request Packet~\newline
+1 \+: Only reply to Read C\+MD~\newline
+ (default) 2 \+: Reply to all Request Packet~\newline
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+ID} & id of the motor \\
+\hline
+\mbox{\texttt{ in}}  & {\em policy} & the acknowledge policy\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return nothing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_herkulex_driver_adc46bbeb799bc4468423e42401f17006}\label{class_herkulex_driver_adc46bbeb799bc4468423e42401f17006}} 
+\index{HerkulexDriver@{HerkulexDriver}!setControlMode@{setControlMode}}
+\index{setControlMode@{setControlMode}!HerkulexDriver@{HerkulexDriver}}
+\subsubsection{\texorpdfstring{setControlMode()}{setControlMode()}}
+{\footnotesize\ttfamily void Herkulex\+Driver\+::set\+Control\+Mode (\begin{DoxyParamCaption}\item[{char}]{p\+ID,  }\item[{int}]{controlmode = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+set the control mode 
+
+Sets control mode (56)\+: ~\newline
+0 \+: Position control (default) 1 \+: Turn/\+Velocity Control(\+Continuous rotation)
+
+\begin{DoxyNote}{Note}
+Torque control must be set to \char`\"{}\+Torque O\+N\char`\"{} (0x60) for motor to move
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+ID} & id of the motor \\
+\hline
+\mbox{\texttt{ in}}  & {\em controlmode} & the control mode\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return nothing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_herkulex_driver_a2571e6165507ae6345c0bd1ad5671476}\label{class_herkulex_driver_a2571e6165507ae6345c0bd1ad5671476}} 
+\index{HerkulexDriver@{HerkulexDriver}!setTorqueControl@{setTorqueControl}}
+\index{setTorqueControl@{setTorqueControl}!HerkulexDriver@{HerkulexDriver}}
+\subsubsection{\texorpdfstring{setTorqueControl()}{setTorqueControl()}}
+{\footnotesize\ttfamily void Herkulex\+Driver\+::set\+Torque\+Control (\begin{DoxyParamCaption}\item[{char}]{p\+ID,  }\item[{int}]{mode = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+set the Torque Control 
+
+Sets torque control (52)\+: ~\newline
+0 (0x00) \+: Torque free 1 (0x40) \+: Brake on 2 (0x60) \+: Torque On
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+ID} & id of the motor \\
+\hline
+\mbox{\texttt{ in}}  & {\em controlmode} & the control mode\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return nothing 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/herkulex\+\_\+driver.\+hpp\item 
+src/herkulex\+\_\+driver.\+cpp\end{DoxyCompactItemize}

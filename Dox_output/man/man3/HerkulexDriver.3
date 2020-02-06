@@ -1,0 +1,260 @@
+.TH "HerkulexDriver" 3 "Thu Feb 6 2020" "Version v1" "Herkulex_English" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+HerkulexDriver
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <herkulex_driver\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBHerkulexDriver\fP (std::string valid_com_name)"
+.br
+.RI "Connect to the USB serial device and configure the port settings\&. "
+.ti -1c
+.RI "void \fBsetAcknowledgePolicy\fP (char pID, int policy=1)"
+.br
+.RI "set the acknowledge policy "
+.ti -1c
+.RI "void \fBsetControlMode\fP (char pID, int controlmode=0)"
+.br
+.RI "set the control mode "
+.ti -1c
+.RI "void \fBsetTorqueControl\fP (char pID, int mode=0)"
+.br
+.RI "set the Torque Control "
+.ti -1c
+.RI "float \fBgetAbsoluteAngle\fP (char pID)"
+.br
+.ti -1c
+.RI "float \fBgetCalibratedAngle\fP (char pID)"
+.br
+.ti -1c
+.RI "int \fBgetError\fP (char pID)"
+.br
+.ti -1c
+.RI "int \fBclearError\fP (char pID)"
+.br
+.ti -1c
+.RI "void \fBrunMotor\fP (\fBS_JOG_TAG\fP *sjog, char num_sjog)"
+.br
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBgetValidComPort\fP (std::string valid_com_name)"
+.br
+.RI "Get all the connected IMU on windows machine\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Uses \fBserial_stream\&.hpp\fP to send comamnds to herkulex
+.PP
+\fBNote:\fP
+.RS 4
+for linux, use LibSerial 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+http://libserial.sourceforge.net/
+.RE
+.PP
+This class is written to mimic the SerialStream\&.h member functions\&. Hence, the member functions name are all the same, and not following google style guide
+.PP
+basics on usb read write using Win32 API http://xanthium.in/Serial-Port-Programming-using-Win32-API For using Overlapped (Multithread)\&. i\&.e\&. non blocking read/write https://www.dreamincode.net/forums/topic/165693-microsoft-working-with-overlapped-io/
+.PP
+Created by: 
+.PP
+\fBAuthor:\fP
+.RS 4
+Er Jie Kai (EJK) 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "HerkulexDriver::HerkulexDriver (std::string valid_com_name)"
+
+.PP
+Connect to the USB serial device and configure the port settings\&. This function will search all connected comport for a matching comport name and connect to it\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvalid_com_port\fP the com port name to match
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+returns nothing 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "int HerkulexDriver::clearError (char pID)"
+clear the status error and status detail
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpID\fP id of the motor
+.RE
+.PP
+return returns nothing 
+.SS "float HerkulexDriver::getAbsoluteAngle (char pID)"
+gets the absolute angle Absolute position Raw Data (60) Angle = r(Absolute Position) X 0\&.325
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpID\fP id of the motor
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+return the absolute angle of the motor 
+.RE
+.PP
+
+.SS "float HerkulexDriver::getCalibratedAngle (char pID)"
+gets the calibrated angle Calibrated position Data (58)
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpID\fP id of the motor
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+return the calibrated angle of the motor 
+.RE
+.PP
+
+.SS "int HerkulexDriver::getError (char pID)"
+gets the status error and status detail
+.PP
+Status Error: Bit Value Comment 0 0X01 Exceed Input Voltage limit 1 0X02 Exceed allowed POT limit 2 0X04 Exceed Temperature limit 3 0X08 Invalid Packet 4 0X10 Overload detected 5 0X20 Driver fault detected 6 0X40 EEP REG distorted 7 0X80 reserved
+.PP
+Status Detail: Bit Value Comment 0 0X01 Moving flag 1 0X02 Inposition flag 2 0X04 Checksum Error 3 0X08 Unknown Command 4 0X10 Exceed REG range 5 0X20 Garbage detected 6 0X40 MOTOR_ON flag 7 0X80 reserved
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpID\fP id of the motor
+.RE
+.PP
+return integer of combined status_error<<8 & status_detail 
+.SS "int HerkulexDriver::getValidComPort (std::string valid_com_name)\fC [private]\fP"
+
+.PP
+Get all the connected IMU on windows machine\&. This function is only necessary on windows\&.
+.br
+The name of the comport device must match the stated name of 'USB Serial Device' to be considered an IMU
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvalid_com_port\fP a pointer to store all the discovered comport
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+returns the number of valid comports discovered 
+.RE
+.PP
+
+.SS "void HerkulexDriver::runMotor (\fBS_JOG_TAG\fP * sjog, char num_sjog)"
+runs the Motor using S_JOG protocol
+.PP
+\fBNote:\fP
+.RS 4
+S_JOG is suppose to allow multiple motors to be commanded simultaneously\&. However, only the specied motor via data[3] (pID element) will move\&. Hence each motor must be commanded individually now\&.
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*sjog\fP array of \fBS_JOG_TAG\fP structure 
+.br
+\fInum_sjog\fP number of sjog elements in sjog array
+.RE
+.PP
+return returns nothing 
+.SS "void HerkulexDriver::setAcknowledgePolicy (char pID, int policy = \fC1\fP)"
+
+.PP
+set the acknowledge policy Sets ACK Packet reply policy(1) when Request Packet is received\&. 
+.br
+ACK Policy(RAM Register Address 1)
+.br
+0 : No reply to any Request Packet
+.br
+1 : Only reply to Read CMD
+.br
+ (default) 2 : Reply to all Request Packet
+.br
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpID\fP id of the motor 
+.br
+\fIpolicy\fP the acknowledge policy
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+return nothing 
+.RE
+.PP
+
+.SS "void HerkulexDriver::setControlMode (char pID, int controlmode = \fC0\fP)"
+
+.PP
+set the control mode Sets control mode (56): 
+.br
+0 : Position control (default) 1 : Turn/Velocity Control(Continuous rotation)
+.PP
+\fBNote:\fP
+.RS 4
+Torque control must be set to 'Torque ON' (0x60) for motor to move
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpID\fP id of the motor 
+.br
+\fIcontrolmode\fP the control mode
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+return nothing 
+.RE
+.PP
+
+.SS "void HerkulexDriver::setTorqueControl (char pID, int mode = \fC0\fP)"
+
+.PP
+set the Torque Control Sets torque control (52): 
+.br
+0 (0x00) : Torque free 1 (0x40) : Brake on 2 (0x60) : Torque On
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpID\fP id of the motor 
+.br
+\fIcontrolmode\fP the control mode
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+return nothing 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Herkulex_English from the source code\&.

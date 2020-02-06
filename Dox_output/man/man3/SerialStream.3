@@ -1,0 +1,75 @@
+.TH "SerialStream" 3 "Thu Feb 6 2020" "Version v1" "Herkulex_English" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SerialStream
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <serial_stream\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBOpen\fP (const char *device)"
+.br
+.RI "Opens a COM port in windows\&. "
+.ti -1c
+.RI "int \fBread\fP (char *buffer)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Reads data from a USB port for WINDOWS
+.PP
+\fBNote:\fP
+.RS 4
+for linux, use LibSerial 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+http://libserial.sourceforge.net/
+.RE
+.PP
+This class is written to mimic the SerialStream\&.h member functions\&. Hence, the member functions name are all the same, and not following google style guide
+.PP
+basics on usb read write using Win32 API http://xanthium.in/Serial-Port-Programming-using-Win32-API For using Overlapped (Multithread)\&. i\&.e\&. non blocking read/write https://www.dreamincode.net/forums/topic/165693-microsoft-working-with-overlapped-io/
+.PP
+Created by: 
+.PP
+\fBAuthor:\fP
+.RS 4
+Er Jie Kai (EJK) 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "int SerialStream::Open (const char * device)"
+
+.PP
+Opens a COM port in windows\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdevice\fP the name of the port (eg: COM1 or COM24)
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+returns flag code [0 = everything successful, 1 = INVALID_HANDLE_VALUE, 2 = SetCommState failed ] 
+.RE
+.PP
+
+.SS "int SerialStream::read (char * buffer)"
+code to read out 400 bytes at one go\&. This will stop the program until 400 bytes have been read\&. not useful\&.
+.PP
+code to read the rest of the buffer after 1 byte has been read
+.PP
+this code tries to read the buffer until no bytes is left\&. Doesnt work properly with overlapped I/O 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Herkulex_English from the source code\&.

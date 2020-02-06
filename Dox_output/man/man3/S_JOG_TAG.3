@@ -1,0 +1,32 @@
+.TH "S_JOG_TAG" 3 "Thu Feb 6 2020" "Version v1" "Herkulex_English" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+S_JOG_TAG
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <herkulex_driver\&.hpp>\fP
+.SH "Detailed Description"
+.PP 
+Data structure for programming motor movement using S_JOG 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpID\fP id of the motor 
+.br
+\fIpos\fP (1) position of the motor when mode = 0 (0 to 1023)\&. (2) speed of the motor when mode = 1 (0 to 1023) 
+.br
+\fItime\fP operating time to reach position or continue speed (0 to 255 ticks)\&. every tick = 11\&.2ms 
+.br
+\fIled\fP led colour (green = 0x01, blue = 0x02, red = 0x04) 
+.br
+\fImode\fP the control mode (position control = 0, continuous rotation = 1) 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Herkulex_English from the source code\&.

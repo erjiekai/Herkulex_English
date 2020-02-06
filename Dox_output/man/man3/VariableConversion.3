@@ -1,0 +1,242 @@
+.TH "VariableConversion" 3 "Thu Feb 6 2020" "Version v1" "Herkulex_English" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+VariableConversion
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <variable_conversion\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBEndianSwap16\fP (unsigned short *x)"
+.br
+.RI "Swap the endianness of a 16 bit variable\&. "
+.ti -1c
+.RI "void \fBEndianSwap32\fP (unsigned int *x)"
+.br
+.RI "Swap the endianness of a 32 bit variable\&. "
+.ti -1c
+.RI "float \fBEndianSwap32f\fP (const char *x)"
+.br
+.RI "Swap the endianness of a float\&. "
+.ti -1c
+.RI "int \fBEndianSwap32i\fP (char *x)"
+.br
+.RI "Swap the endianness of an integer\&. "
+.ti -1c
+.RI "float \fBChar2Float\fP (char *array)"
+.br
+.RI "Convert any 4 byte char array into a float\&. "
+.ti -1c
+.RI "int \fBChar2Int\fP (char *array)"
+.br
+.RI "Convert any 4 byte char array into a int\&. "
+.ti -1c
+.RI "void \fBInt2Char\fP (int input, char output[])"
+.br
+.RI "Converts an integer to character array in little endian\&. "
+.ti -1c
+.RI "void \fBFloat2Char\fP (float input, char output[])"
+.br
+.RI "Converts a float to character array in little endian\&. "
+.ti -1c
+.RI "void \fBShort2Char\fP (unsigned short input, char output[])"
+.br
+.RI "Converts a short to character array in little endian\&. "
+.ti -1c
+.RI "unsigned short \fBChar2Short\fP (char input[])"
+.br
+.RI "Converts a character array to short in big endian\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+A class that performs variable conversions
+.PP
+1) Changes the endian of the variable 2) Changes int to char array 3) Changes float to char array
+.PP
+Created by: 
+.PP
+\fBAuthor:\fP
+.RS 4
+Er Jie Kai (EJK) 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "float VariableConversion::Char2Float (char * array)\fC [inline]\fP"
+
+.PP
+Convert any 4 byte char array into a float\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP the 4 byte char array to be converted to float
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+returns the converted float 
+.RE
+.PP
+
+.SS "int VariableConversion::Char2Int (char * array)\fC [inline]\fP"
+
+.PP
+Convert any 4 byte char array into a int\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP the 4 byte char array to be converted to int
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+returns the converted int 
+.RE
+.PP
+
+.SS "unsigned short VariableConversion::Char2Short (char input[])\fC [inline]\fP"
+
+.PP
+Converts a character array to short in big endian\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIinput\fP the float to be converted 
+.br
+\fIoutput\fP the converted character array
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+returns nothing [output via pointer] 
+.RE
+.PP
+
+.SS "void VariableConversion::EndianSwap16 (unsigned short * x)\fC [inline]\fP"
+
+.PP
+Swap the endianness of a 16 bit variable\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[in/out]\fP x the 16 byte char array to be swapped
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+returns nothing [output via pointer] 
+.RE
+.PP
+
+.SS "void VariableConversion::EndianSwap32 (unsigned int * x)\fC [inline]\fP"
+
+.PP
+Swap the endianness of a 32 bit variable\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[in/out]\fP x the 32 byte char array to be swapped
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+returns nothing [output via pointer] 
+.RE
+.PP
+
+.SS "float VariableConversion::EndianSwap32f (const char * x)\fC [inline]\fP"
+
+.PP
+Swap the endianness of a float\&. Convert your input float into a 4 element char array before using this function
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP the 4 byte char array to be converted to float
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+returns the swap endianness float 
+.RE
+.PP
+
+.SS "int VariableConversion::EndianSwap32i (char * x)\fC [inline]\fP"
+
+.PP
+Swap the endianness of an integer\&. Convert your input integer into a 4 element char array before using this function
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP the 4 byte char array to be converted to integer
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+returns the swap endianness integer 
+.RE
+.PP
+
+.SS "void VariableConversion::Float2Char (float input, char output[])\fC [inline]\fP"
+
+.PP
+Converts a float to character array in little endian\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIinput\fP the float to be converted 
+.br
+\fIoutput\fP the converted character array
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+returns nothing [output via pointer] 
+.RE
+.PP
+
+.SS "void VariableConversion::Int2Char (int input, char output[])\fC [inline]\fP"
+
+.PP
+Converts an integer to character array in little endian\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIinput\fP the integer to be converted 
+.br
+\fIoutput\fP the converted character array
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+returns nothing [output via pointer] 
+.RE
+.PP
+
+.SS "void VariableConversion::Short2Char (unsigned short input, char output[])\fC [inline]\fP"
+
+.PP
+Converts a short to character array in little endian\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIinput\fP the float to be converted 
+.br
+\fIoutput\fP the converted character array
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+returns nothing [output via pointer] 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Herkulex_English from the source code\&.
